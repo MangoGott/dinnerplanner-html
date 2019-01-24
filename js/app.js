@@ -1,15 +1,18 @@
-window.onload= function() {
+$(function() {
 	//We instantiate our model
-	const model = new DinnerModel();
-	
+	var model = new DinnerModel();
 	// And create the instance of ExampleView
-	const exampleView = new ExampleView(document.querySelector("#exampleView"));
-
+	//var exampleView = new ExampleView($("#exampleView"), model);
+	var sidebarView = new SidebarView($(".sidebarView"), model);
+	var dishItemView = new DishItemView($(".dishItemView"), model, 100);
+	var welcomeView = new WelcomeView($(".welcomeView"), model);
+	var dishSearchView = new DishSearchView($(".dishSearchView"), model);
+	var dishDetailView = new DishDetailView($(".dishDetailView"), model);
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
-	 * query for elements in the whole document.
+	 * use the $('someSelector') to search for elements in the whole HTML.
 	 * In other places you should limit the search only to the children 
 	 * of the specific view you're working with (see exampleView.js).
 	 */
 
-};
+});

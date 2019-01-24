@@ -12,23 +12,9 @@
  * @param {jQuery object} container - references the HTML parent element that contains the view.
  * @param {Object} model - the reference to the Dinner Model
  */ 
-var ExampleView = function (container, model) {
-	
-	var numberOfGuests = container.find("#numberOfGuests");
-	var guests = model.getNumberOfGuests();
-	
-	var dish = model.getDish(1);
-	var image = dish.image;
+var SidebarView = function (container, model) {
 
-	this.plusButton = container.find("#plusGuest");
-	this.minusButton = container.find("#minusGuest");
-	
-	/**
-	 * Here we use @var {jQuery object} numberOfGuests that is a reference to <span>
-	 * in our view to dynamically set it's value to "Hello World".
-	 */
+    container.append('<div class="sidebarView"> <h2>My Dinner</h2> <div id="nrPeople"> <p>People</p><input type="number" name="numberPeople" value="amount"><div id="details"><p>Dish Name</p><p>Cost</p></div><div id="price"><p>SEK 0.00</p></div><div><button id="create" class="btn"><span>Create new dinner</span></button></div></div></div>');
 
-	//numberOfGuests.html(dish.description);
-	numberOfGuests.html('<img src="images/' + image + '">');
 }
  
