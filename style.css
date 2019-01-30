@@ -1,9 +1,151 @@
 body {
-  background-color: powderblue;
+  background-color: white;
 }
 h1 {
-  color: blue;
+	font-family: 'Helvetica', 'Arial Narrow', Arial, sans-serif;
+	font-size: 50px;
+	font-weight: normal;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	
+}
+
+h2 {
+	color:white;
+	font: bold;
+
+}
+
+h3 {
+	font: 20px/1.37 Ubuntu, sans-serif;
+	text-transform: uppercase;
+	border-left: 0.25rem solid #EE4035;
+	color: #EE4035; 
+	padding: 0.25rem;
+
 }
 p {
-  color: red;
+	color:white;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+
 }
+
+p.ingList {
+	text-transform: capitalize;
+	white-space: nowrap;
+}
+
+.header {
+	display: flex;
+	justify-content: center;
+	background-color: #EE4035;
+	font: 20px/1.37 Ubuntu, sans-serif;
+	text-transform: uppercase;
+	border-left: 0.25rem solid #EE4035;
+	background: #EE4035;
+	color: white; 
+	padding: 0.25rem;	
+}
+
+.containerWelcome {
+	display: flex;
+	justify-content: center;
+}
+
+.container{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+
+.welcomeView {
+	display: flex;
+	max-width: 50%;
+	padding: 30px;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	align-content: space-between;
+	
+}
+
+#create {
+	display: flex;
+	align-items: center;
+	background-color:  #EE4035;
+	color: white;
+	
+}
+
+img {
+	
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	flex-flow: wrap;
+	padding: 3%;
+}
+
+
+.dishDetailView {
+	display: flex;
+	flex-direction: row;
+	width: 50%;
+	background-color:black;
+	margin: 20px;
+	align-content: space-between;
+	align-content: center;
+
+}
+
+.sidebarView {
+	display: flex; 
+	flex-direction: column;
+	background-color:black;
+	margin: 20px;
+	height: fit-content;
+}
+
+.dishSearchView {
+	display: flex;
+	align-self: stretch;
+	align-content: space-between;
+	background-color: darkmagenta;
+	margin: 20px;
+	
+}
+
+.ingredients {
+	display: flex;
+	background-color: #EE4035;
+	flex-direction: column;
+	align-items: flex-start;
+	height: fit-content;
+	width: fit-content;
+	padding: 10px;
+	margin: -10px;
+	
+
+}
+
+
+.dish {
+	background-color: yellowgreen;
+	border: blueviolet;
+
+}
+
+
+table {
+
+	min-width: 300px;
+	
+
+}
+
+  th, td {
+	  padding: 2px;
+  }

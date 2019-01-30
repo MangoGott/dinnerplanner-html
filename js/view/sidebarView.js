@@ -14,7 +14,7 @@
  */ 
 var SidebarView = function (container, model) {
 
-    container.append('<div class="sidebarView"> <h2>My Dinner</h2> <div id="nrPeople"> <p>People</p><input type="number" name="numberPeople" value="amount"><div id="details"><p>Dish Name</p><p>Cost</p></div><div id="price"><p>SEK 0.00</p></div><div><button id="create" class="btn"><span>Create new dinner</span></button></div></div></div>');
+    container.append('<div class="sidebarView"> <h2>My Dinner</h2> <div id="nrPeople"> <p>People</p><input type="number" name="numberPeople" value="amount"><div id="details"><p>Dish Name</p><p>Cost</p></div><div id="price"><p>SEK 0.00</p></div><div><button id="create" class="btn btn-dark"><span>Create new dinner</span></button></div></div></div>');
 
 }
  

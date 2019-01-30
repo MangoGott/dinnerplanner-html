@@ -4,18 +4,21 @@ var DishSearchView = function (container, model) {
 
 	container.append(searchBar);
 	
-	var allDishes = model.getAllDishes("starter");
+	var menu = model.getFullMenu();
 
-	allDishes.forEach( element => { 
-			let itemElement = '<div class="dishItemView"></div>'
-			container.append(itemElement);
-			itemElement = container.children().last(); 
-			new DishItemView(itemElement, model, element.id);
-		  });
 
-		  //var menu = model.getFullMenu();
-		 // var ingredients = model.getAllIngredients();
-
-		  model.removeDishFromMenu(102);
+	var i = 0;
+	menu.forEach( element => { 
+			var itemElement =`
+			<div class=dishItemView${i}></div>
+			`;
+		container.append(itemElement);
+		
+		contain = container.find(`.dishItemView${i}`);
+		
+		new DishItemView($(`.dishItemView${i}`), model, element);
+		i++;	
+	});
+		
 }
  
