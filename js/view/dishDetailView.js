@@ -1,7 +1,8 @@
 var DishDetailView = function (container, model) {
 
-		const id = 100;
+		const id = 1;
 		const dish = model.getDish(id);
+		var guests = model.getNumberOfGuests();
 
 		const dishName = dish.name;
 		const dishImg = dish.image;
@@ -9,7 +10,7 @@ var DishDetailView = function (container, model) {
 
 		const returnButton = '<button id="create" class="btn">Back to search</button>';
 
-		let infoDiv = '<div class="info"></div>'
+		let infoDiv = '<div class="info col"></div>'
 
 		//lägg till infoDiv och lägg info i den
 		//var dishInfo = container.find('.dishDetailView'); 
@@ -23,7 +24,7 @@ var DishDetailView = function (container, model) {
 		infoDiv.append(returnButton);
 
 		//lopa och lägg in table rows eller vadfan det heter. 
-		var IngDiv = '<div class="ingredients"></div>'
+		var IngDiv = '<div class="ingredients col"></div>'
 		container.append(IngDiv);
 		var totalPrice = 0; 
 		var ingredients = model.getDish(id).ingredients;
@@ -36,7 +37,7 @@ var DishDetailView = function (container, model) {
 		
 		ingredientsContainer.append("<h2>Ingredients for " + model.getNumberOfGuests() + " people</h2>");
 
-			var i = 0; 
+			
 
 			ingredientsContainer.append('<table class="bord"></table>');
 			ingredientsContainer = ingredientsContainer.find('.bord');
@@ -49,14 +50,18 @@ var DishDetailView = function (container, model) {
 				var x = `
 							
 							<tr>
-								<td> <p>${element.quantity + element.unit}  </p> </td>
+								<td> <p>${element.quantity * guests + " " + element.unit}  </p> </td>
 								<td> <p class="ingList">    ${element.name}  </p> </td> 
-								<td> <p>    ${element.price} SEK  </p> </td>
+								<td> <p>    ${element.price * guests} SEK  </p> </td>
 							</tr>
 				`;
 
 				ingredientsContainer.append(x);
 				
-				i++;
+				
 		});		
+
+		ingredientsContainer.append(`<button id="backToSearch" class="btn">Add to menu</button>`);
+
+
 }

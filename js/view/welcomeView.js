@@ -14,10 +14,11 @@
  */ 
 var WelcomeView = function (container, model) {
 	
-	var welcomeText = "<h3 class='welcomeText'> Eat some food, drink some drink, eat some food, drink some drink, kick back yeaaa man. ;) </h3>"
+	var welcomeText = "<h3 class='welcomeText'> Eat some food, drink some drink, eat some food, drink some drink, kick back yeaaa man ;) </h3>"
 	var welcomeButton = '<button id="create" class="btn"><span>Create new dinner</span></button>'
 
 	container.append(welcomeText);
 	container.append(welcomeButton);
+
 }
  

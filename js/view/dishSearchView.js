@@ -1,23 +1,34 @@
 var DishSearchView = function (container, model) {
 	
-	const searchBar = '<h2>Find a Dish</h2><form><input type="text" name="FirstName" value="Enter key words"><input type="submit" value="Search"></form><select><option value="volvo">Main Course</option><option value="saab">Side Dish</option><option value="opel">Dessert</option><option value="audi">Appetizer</option></select><div class="search"></div>'
+	const searchBar = `
+	<h2>Find a Dish</h2>
+	
+	<form class="form-group">
+	
+		<input type="text" value="Enter search words">
+		
+		<select class="form-control">
+			<option>Main Course</option>
+			<option>Side Dish</option>
+			<option>Dessert</option>
+			<option>Appetizer</option>
+		</select>
+		
+		<input class="btn" type="submit" value="Search">
+	</form>
+		
+		
+	<div class="search"></div>`;
 
 	container.append(searchBar);
-	
+
+
+	container = container.find(".search");
 	var menu = model.getFullMenu();
 
-
-	var i = 0;
 	menu.forEach( element => { 
-			var itemElement =`
-			<div class=dishItemView${i}></div>
-			`;
-		container.append(itemElement);
+		new DishItemView($(container), model, element);
 		
-		contain = container.find(`.dishItemView${i}`);
-		
-		new DishItemView($(`.dishItemView${i}`), model, element);
-		i++;	
 	});
 		
 }

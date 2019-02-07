@@ -16,6 +16,10 @@ h2 {
 
 }
 
+.black {
+	color: black;
+}
+
 h3 {
 	font: 20px/1.37 Ubuntu, sans-serif;
 	text-transform: uppercase;
@@ -33,31 +37,23 @@ p {
 p.ingList {
 	text-transform: capitalize;
 	white-space: nowrap;
+	font-weight: bold;
 }
 
 .header {
-	display: flex;
-	justify-content: center;
+	display: block;
 	background-color: #EE4035;
 	font: 20px/1.37 Ubuntu, sans-serif;
-	text-transform: uppercase;
 	border-left: 0.25rem solid #EE4035;
 	background: #EE4035;
 	color: white; 
-	padding: 0.25rem;	
+	
 }
 
 .containerWelcome {
 	display: flex;
 	justify-content: center;
 }
-
-.container{
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-}
-
 
 .welcomeView {
 	display: flex;
@@ -70,82 +66,179 @@ p.ingList {
 	
 }
 
-#create {
-	display: flex;
-	align-items: center;
+.btn {
 	background-color:  #EE4035;
-	color: white;
-	
+	color: white;	
 }
 
-img {
-	
+#backToSearch {
+	background-color: white;
+	color: black;
 }
 
 .info {
 	display: flex;
 	flex-direction: column;
-	flex-flow: wrap;
 	padding: 3%;
 }
 
-
+img {
+	/* FIXA SÅ BILDERNA SPRÄNGS*/
+	width: auto;
+	height: auto;
+}
 .dishDetailView {
 	display: flex;
-	flex-direction: row;
-	width: 50%;
+	flex-flow: wrap row;
 	background-color:black;
 	margin: 20px;
 	align-content: space-between;
 	align-content: center;
-
 }
+
+.info > img {
+	width: 230px;
+}
+
+nav {
+	background-color: black;
+}
+
 
 .sidebarView {
 	display: flex; 
 	flex-direction: column;
+	align-self: flex-start;
 	background-color:black;
 	margin: 20px;
-	height: fit-content;
+	
+
+}
+
+.bg-dark {
+    background-color: #000000!important;
+}
+
+.people {
+	display: flex;
+	flex-flow: column;
 }
 
 .dishSearchView {
 	display: flex;
-	align-self: stretch;
-	align-content: space-between;
-	background-color: darkmagenta;
-	margin: 20px;
-	
+	flex-direction: column;	
+	background-color: black;
+
+}
+
+.search {
+	display: flex;
+	flex-flow: wrap;
+	margin: 10px;
+	background-color: white;
+	border: black;
+	width: fit-content;
+	justify-content: space-evenly;
 }
 
 .ingredients {
 	display: flex;
 	background-color: #EE4035;
 	flex-direction: column;
-	align-items: flex-start;
-	height: fit-content;
+	padding: 2px;
+}
+
+.people {
+	display: flex;
+	font-weight: bold;
+}
+
+img {
+
+
+
+}
+
+.form-group > select {
 	width: fit-content;
-	padding: 10px;
-	margin: -10px;
-	
-
 }
-
-
 .dish {
-	background-color: yellowgreen;
-	border: blueviolet;
-
+	
+	display: flex;
+	max-width: 150px;
+	align-items: center;
+	flex-direction: column;
+	font-weight: bold;
+	color: black;
+	padding: 10px;
 }
 
+.last {
+	font-weight: bold;
+}
 
 table {
-
-	min-width: 300px;
+ min-width: 300px;
 	
-
 }
 
   th, td {
 	  padding: 2px;
   }
+
+.displayMenu {
+	display: flex;
+	justify-content: center
+	padding: 10px;
+	
+}
+
+.topOverView {
+	display: flex;
+	flex-flow: wrap row;
+	align-items: baseline;
+	justify-content: space-evenly;
+	padding: 10px;
+
+   top: 0px;
+   margin:0px;  
+   padding: 10px 0px 10px 0px;    
+   border-width: 2px;
+   border-bottom: 2px black solid;
+
+}
+
+.dishItemView {
+	display: flex;
+	align-content: flex-start;
+	justify-content: space-evenly;
+}
+
+.overViewMitten {
+	top: 0px;
+	margin:0px;  
+	padding: 10px 0px 10px 10px;    
+	border-width: 2px;
+	border-bottom: 2px black solid;
+	
+}
+
+.printRec {
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+}
+
+
+
+.row {
+	display: flex;
+	justify-content: center;
+}
+
+.menuPrint {
+
+	display: flex;
+	flex-flow: wrap column;
+
+}
