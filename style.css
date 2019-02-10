@@ -128,6 +128,9 @@ nav {
 	display: flex;
 	flex-direction: column;	
 	background-color: black;
+	width: fit-content;
+	padding: 10px;
+	margin: 10px;
 
 }
 
@@ -135,6 +138,7 @@ nav {
 	display: flex;
 	flex-flow: wrap;
 	margin: 10px;
+	padding: 10px;
 	background-color: white;
 	border: black;
 	width: fit-content;
@@ -229,16 +233,15 @@ table {
 	padding: 20px;
 }
 
-
-
 .row {
 	display: flex;
 	justify-content: center;
 }
 
-.menuPrint {
-
+.dishDescription {
 	display: flex;
-	flex-flow: wrap column;
-
+	flex-flow: wrap row;
+	padding: 10px;
+	margin: 10px;
 }
+

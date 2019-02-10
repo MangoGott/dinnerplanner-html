@@ -14,9 +14,7 @@ var DinnerPrintoutView = function (container, model) {
 
 
 	var displayMenu = container.find(".menuPrint");
-	var menu = model.getFullMenu();
-
-	
+	var menu = model.getFullMenu();	
 
 	menu.forEach(element => {
 
@@ -27,10 +25,10 @@ var DinnerPrintoutView = function (container, model) {
 
 		displayMenu.append(`
 	
-			<div class"dishDescription">
+			<div class="dishDescription">
 			<img src="images/${image}">
 			
-			<h2 class="black"> ${name} <h2>
+			<h2 class="black"> ${name} </h2>
 
 			<p class="black"> ${description} </p>
 			<div>

@@ -39,12 +39,13 @@ var DinnerOverView = function (container, model) {
 	
 	<h3> Total: ${model.getTotalMenuPrice()} SEK </h3> 
 
+	<button id="create" class="btn">
+	Print Full Recipe
+	</button>
+
 	</div>`);
 	
-	container = container.find(".printRec");
-	container.append(`<button id="create" class="btn">
-	Print Full Recipe
-	</button>`);
+	
 
 		
 }

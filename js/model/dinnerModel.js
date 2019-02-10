@@ -7,10 +7,26 @@ var DinnerModel = function() {
 	var menu = [1,2,100,200]; //fyll på i app.js istället.
 
 
+	//Observer!
+	var observers=[];
+	this.addObserver=function(observer){ observers.push(observer); }
+	   
+	this.notifyObservers=function(changeDetails){ 
+		for(var i=0; i<observers.length; i++)
+			 observers[i](this, changeDetails); // we assume that observers[i] is a function, so we call it like observers[i](parameters)
+	}
+	
+	this.removeObserver=function(observer){  
+		/* remove observer from array */}
+
+	//.... other model data and code calling notifyObservers() when the model changes
+
+
+
 	this.setNumberOfGuests = function(num) {
 		nrGuests = num; 
 
-		this.notifyObservers();
+		this.notifyObservers(nrGuests);
 
 	}
 	
@@ -145,24 +161,6 @@ var DinnerModel = function() {
 			}
 		}
 	}
-
-
-	//Observer!
-
-	var observers=[];
-	this.addObserver=function(observer){ observers.push(observer); }
-	   
-	this.notifyObservers=function(changeDetails){ 
-		for(var i=0; i<observers.length; i++)
-			 observers[i](this, changeDetails); // we assume that observers[i] is a function, so we call it like observers[i](parameters)
-	}
-	
-	this.removeObserver=function(observer){  
-		/* remove observer from array */}
-
-	//.... other model data and code calling notifyObservers() when the model changes
-
-
 
 
 	// the dishes variable contains an array of all the 

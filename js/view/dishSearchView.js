@@ -1,6 +1,9 @@
 var DishSearchView = function (container, model) {
-	
-	const searchBar = `
+
+	var results = container.find(".results");
+
+	results.append(`
+
 	<h2>Find a Dish</h2>
 	
 	<form class="form-group">
@@ -16,8 +19,12 @@ var DishSearchView = function (container, model) {
 		
 		<input class="btn" type="submit" value="Search">
 	</form>
-		
-		
+	`
+	);
+	
+	
+	const searchBar = `
+
 	<div class="search"></div>`;
 
 	container.append(searchBar);
