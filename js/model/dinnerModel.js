@@ -174,18 +174,18 @@ var DinnerModel = function() {
 	}
 
 	this.getAllDishes2 = function (type, filter) {
-		return fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=10&offset=0&type=' + type + '&query=' + filter, {
+		return fetch('http://sunset.nada.kth.se:8080/iprog/group/70/recipes/search?number=10&offset=0&type=' + type + '&query=' + filter, {
 			headers: {
-				'X-RapidAPI-Key': API_KEY
+				'X-Mashape-Key': API_KEY
 			}
 		}).then(response => response.json())
 			.then(data => data.results)
 	} 
 
 	this.getDish2 = function (id) {
-		return fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/'+Number(id)+'/information', {
+		return fetch('http://sunset.nada.kth.se:8080/iprog/group/70/recipes/'+Number(id)+'/information', {
 			headers: {
-				'X-RapidAPI-Key': API_KEY
+				'X-Mashape-Key': API_KEY
 			}
 		}).then(response => response.json())
 			.then(data => data.results)

@@ -129,9 +129,15 @@ nav {
 	display: flex;
 	flex-direction: column;	
 	background-color: black;
-	width: fit-content;
 	padding: 10px;
 	margin: 10px;
+
+}
+
+
+.dishItem > img{
+	width: 100px;
+	height: auto;
 
 }
 
@@ -142,8 +148,8 @@ nav {
 	padding: 10px;
 	background-color: white;
 	border: black;
-	width: fit-content;
 	justify-content: space-evenly;
+	height: 300px;
 }
 
 .ingredients {
@@ -158,15 +164,7 @@ nav {
 	font-weight: bold;
 }
 
-img {
 
-
-
-}
-
-.form-group > select {
-	width: fit-content;
-}
 .dish {
 	
 	display: flex;

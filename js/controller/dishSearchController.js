@@ -12,12 +12,12 @@ var DishSearchController = function(view, model, app) {
         model.getAllDishes2(type, searchTerm).then(dishes => {
             
             dishes.forEach(function (dish) {
-                new DishItemView(view, $(".search"), dish, model, app); //idior
+                new DishItemView(view, $(".search"), dish, model, app);
             
             })
             view.loadingHide();
         }).catch(error => {
-            console.log('dish search error'+error);
+           console.log('ERROR');
         });
 
     });
