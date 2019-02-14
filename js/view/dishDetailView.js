@@ -64,4 +64,11 @@ var DishDetailView = function (container, model) {
 		ingredientsContainer.append(`<button id="backToSearch" class="btn">Add to menu</button>`);
 
 
+	this.showView = function () {
+			container.show();
+	}
+	this.hideView = function () {
+			container.hide();
+	}	
+
 }

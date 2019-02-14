@@ -12,14 +12,49 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <title>Document</title>
 </head>
-  <body>
-    
-  <div class="sidebarView"></div>
+<body>
+
+<!-- LÄGG IN ALLT I RIGHT BOX AND LEFT BOX, TA BORT ALLA FLEXBOX SHITGREJER, OCH ANVÄND BARA BOOTSTRAP-->
+
+<!-- Header-->
+<div class="header">
+    <h1>DINNER PLANNER</h1>
+  </div> 
 
 
-  </body>
+<div class="righBox col-auto"> 
 
-  <!-- jQuery -->
+    <!-- Side Bar-->
+    <div class="sidebarView"></div>
+
+</div>
+
+<div class="leftBox col-auto">
+
+    <!-- Dish Search View -->
+    <div class="dishSearchView">
+        <!--        <div class="sidebarView"></div>        -->
+        <div class="results"></div>
+    </div>
+
+    <!-- Dish Details -->
+    <div class="dishDetailView"></div>
+
+</div>
+
+<!-- Welcome View -->
+  
+  <div class="containerWelcome col-auto">
+  <div class="welcomeView"></div>
+  </div>
+
+
+
+
+
+
+
+<!-- jQuery -->
 <script src="https://code.jquery.com/jquery.js"></script>
 
 <!-- The application JavaScript code -->
@@ -40,11 +75,11 @@
 <script src="js/controller/sidebarController.js"></script>
 <script src="js/controller/welcomeController.js"></script>
 <script src="js/controller/dishSearchController.js"></script>
-
+<script src="js/controller/dishItemController.js"></script>
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+</body>
 </html>

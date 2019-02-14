@@ -1,12 +1,16 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
  
+	
+	//Lab 3
+	let API_KEY="3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767";	
+	var dishID = 1;
+
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
 	var nrGuests = 2; 
-	var menu = [1,2,100,200]; //fyll på i app.js istället.
-
-
+	var menu = [1,2,100,200]; //fyll på i app.js istället?
+	
 	//Observer!
 	var observers=[];
 	this.addObserver=function(observer){ observers.push(observer); }
@@ -21,31 +25,37 @@ var DinnerModel = function() {
 
 	//.... other model data and code calling notifyObservers() when the model changes
 
+	this.setID = function(id) {
+		dishID = id; 
+		this.notifyObservers('dishDetailsId');
+	}
+
+	this.getID = function() {
+		return dishID;
+	}
 
 
 	this.setNumberOfGuests = function(num) {
-		nrGuests = num; 
-
-		this.notifyObservers(nrGuests);
+		
+		if(num>=0){
+			nrGuests = num; 
+			this.notifyObservers(nrGuests);
+		}		
 
 	}
 	
 	this.getNumberOfGuests = function() {
-
 		return nrGuests;
-
 	}
 
 	//Returns the dish that is on the menu for selected type 
-	this.getSelectedDish = function(type) {
-		
+	this.getSelectedDish = function(type) {	
 		var selection = [];
 		menu.forEach(function(element) {
 	  		if (element.type = type) {
 	  			selection.push(element);
 	  		}
   		});
-		  
 		return selection;
 	}
 
@@ -93,12 +103,12 @@ var DinnerModel = function() {
 		
 		var guests = this.getNumberOfGuests();
 		
-		var DishIngredients = this.getDish(id).ingredients;
+		var dishIngredients = this.getDish(id).ingredients;
 		
 		var totalDishPrice = 0; 
 		var price = 0;
 
-		DishIngredients.forEach(element => {
+		dishIngredients.forEach(element => {
 				price = element.price;
 				totalDishPrice = totalDishPrice + price*guests;
 			});
@@ -153,6 +163,7 @@ var DinnerModel = function() {
 	  });	
 	}
 
+
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
 	  for(key in dishes){
@@ -161,6 +172,25 @@ var DinnerModel = function() {
 			}
 		}
 	}
+
+	this.getAllDishes2 = function (type, filter) {
+		return fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=10&offset=0&type=' + type + '&query=' + filter, {
+			headers: {
+				'X-RapidAPI-Key': API_KEY
+			}
+		}).then(response => response.json())
+			.then(data => data.results)
+	} 
+
+	this.getDish2 = function (id) {
+		return fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/'+Number(id)+'/information', {
+			headers: {
+				'X-RapidAPI-Key': API_KEY
+			}
+		}).then(response => response.json())
+			.then(data => data.results)
+	}
+
 
 
 	// the dishes variable contains an array of all the 

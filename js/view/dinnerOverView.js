@@ -16,7 +16,6 @@ var DinnerOverView = function (container, model) {
 	var displayMenu = container.find(".displayMenu");
 	var menu = model.getFullMenu();
 
-	console.log(menu);
 	displayMenu.append(`
 	
 	<div class="row">
@@ -29,7 +28,7 @@ var DinnerOverView = function (container, model) {
 
 	menu.forEach(element => {
 
-		new DishItemView($(displayMenu), model, element);
+	//	new DishItemView($(displayMenu), model, element);
 
 	});
 
@@ -47,6 +46,12 @@ var DinnerOverView = function (container, model) {
 	
 	
 
+	this.showView = function () {
+        container.show();
+    }
+    this.hideView = function () {
+        container.hide();
+    }	
 		
 }
  

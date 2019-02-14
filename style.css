@@ -41,7 +41,8 @@ p.ingList {
 }
 
 .header {
-	display: block;
+	display: flex;
+	justify-content: center;
 	background-color: #EE4035;
 	font: 20px/1.37 Ubuntu, sans-serif;
 	border-left: 0.25rem solid #EE4035;

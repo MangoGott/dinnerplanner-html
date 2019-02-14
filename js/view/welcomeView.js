@@ -15,10 +15,19 @@
 var WelcomeView = function (container, model) {
 	
 	var welcomeText = "<h3 class='welcomeText'> Eat some food, drink some drink, eat some food, drink some drink, kick back yeaaa man ;) </h3>"
-	var welcomeButton = '<button id="create" class="btn"><span>Create new dinner</span></button>'
+	var welcomeButton = '<button id="welcome" class="btn"><span>Create new dinner</span></button>'
 
 	container.append(welcomeText);
 	container.append(welcomeButton);
+
+	this.welcomeBtn = container.find("#welcome");
+
+	this.showView = function () {
+        container.show();
+    }
+    this.hideView = function () {
+        container.hide();
+    }
 
 }
  
