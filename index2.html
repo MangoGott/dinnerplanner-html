@@ -17,38 +17,62 @@
 <!-- LÄGG IN ALLT I RIGHT BOX AND LEFT BOX, TA BORT ALLA FLEXBOX SHITGREJER, OCH ANVÄND BARA BOOTSTRAP-->
 
 <!-- Header-->
-<div class="header">
+<div class="row">
+
+<div class="header col">
     <h1>DINNER PLANNER</h1>
   </div> 
 
+</div>
 
-<div class="righBox col-auto"> 
+<div class="row">
+
+<div class="righBox col-sm-4"> 
 
     <!-- Side Bar-->
     <div class="sidebarView"></div>
 
 </div>
 
-<div class="leftBox col-auto">
+<div class="leftBox col-sm-8">
 
     <!-- Dish Search View -->
     <div class="dishSearchView">
-        <!--        <div class="sidebarView"></div>        -->
         <div class="results"></div>
     </div>
 
     <!-- Dish Details -->
     <div class="dishDetailView"></div>
 
+
+     <!-- Dinner Overview -->
+    <div class="dinnerOverView">
+
+        <div class="topOverView"></div>    
+    
+        <div class="displayMenu"></div>
+    
+    </div>
+
+     <!-- Dinner PrintoutView -->
+    <div class="dinnerPrintoutView">
+
+        <div class="topOverView"></div>   
+
+        <div class="menuPrint"></div>
+    </div>
+
+
 </div>
 
 <!-- Welcome View -->
   
-  <div class="containerWelcome col-auto">
+  <div class="containerWelcome">
   <div class="welcomeView"></div>
   </div>
 
 
+</div>
 
 
 
@@ -62,7 +86,7 @@
 <!-- Dinner model-->
 <script src="js/model/dinnerModel.js"></script>
 <!-- TODO: Here you should include JS code for your other views -->
-<script src="js/view/exampleView.js"></script>
+<!--  <script src="js/view/exampleView.js"></script> -->
 <script src="js/view/dishItemView.js"></script>
 <script src="js/view/welcomeView.js"></script>
 <script src="js/view/dishSearchView.js"></script>
@@ -71,11 +95,15 @@
 <script src="js/view/dinnerPrintoutView.js"></script>
 <script src="js/view/sidebarView.js"></script>
 
-<script src="js/controller/appController.js"></script>
+
 <script src="js/controller/sidebarController.js"></script>
 <script src="js/controller/welcomeController.js"></script>
 <script src="js/controller/dishSearchController.js"></script>
 <script src="js/controller/dishItemController.js"></script>
+<script src="js/controller/dishDetailController.js"></script>
+<script src="js/controller/dinnerOverViewController.js"></script>
+<script src="js/controller/dinnerPrintoutController.js"></script>
+<script src="js/controller/appController.js"></script>
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

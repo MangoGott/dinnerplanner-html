@@ -1,17 +1,24 @@
 var DishSearchController = function(view, model, app) {
 
     view.searchButton.on('click', function () {
-        view.loadingShow();
+        
+        view.window.find(".dishItem").remove(); //töm allt!
 
         view.list.empty();
+
+        view.loadingShow();
+        
+       
         var type = document.getElementById('type').value;
         var searchTerm = document.getElementById('searchTerm').value;
 
-        var dishes = model.getAllDishes2(type, searchTerm.toLowerCase());
-        
-        model.getAllDishes2(type, searchTerm).then(dishes => {
+        //var dishes = model.getAllDishes2(type, searchTerm.toLowerCase());    
+       
+
+        model.getAllDishes2(type, searchTerm).then(elem => {
             
-            dishes.forEach(function (dish) {
+            elem.forEach(function (dish) {
+                
                 new DishItemView(view, $(".search"), dish, model, app);
             
             })

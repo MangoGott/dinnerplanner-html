@@ -28,13 +28,21 @@ var DishItemView = function (view, container, dish, model, app) {
 	`;
 	container.append(dishDiv);
 
-	dishDiv = container.find(".dishItem");
-    dishDiv.append('<img src="https://spoonacular.com/recipeImages/' + dish.image +'"' + '/>');
+	dishDiv = container.find(".dishItem").last();
+	dishDiv.append('<img src="https://spoonacular.com/recipeImages/' + dish.image +'"' + '/>');
     dishDiv.append('<a class="dishName">' + dish.title + '</a>');
-    //dishDiv.append('<p class="itemPrice">' + model.getTotalDishPrice(dish.id) + ' SEK</p>');
+	
+	//dishDiv.append('<p class="itemPrice">' + model.getTotalDishPrice(dish.id) + ' SEK</p>');
 
     new DishItemController(view, dishDiv, app, dish.id, model);
 
+
+	this.showView = function () {
+        container.show();
+    }
+    this.hideView = function () {
+        container.hide();
+    }	
 
 }
  

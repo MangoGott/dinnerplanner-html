@@ -12,8 +12,8 @@
  * @param {jQuery object} container - references the HTML parent element that contains the view.
  * @param {Object} model - the reference to the Dinner Model
  */ 
-var WelcomeView = function (container, model) {
-	
+var WelcomeView = function (container, model) {	
+
 	var welcomeText = "<h3 class='welcomeText'> Eat some food, drink some drink, eat some food, drink some drink, kick back yeaaa man ;) </h3>"
 	var welcomeButton = '<button id="welcome" class="btn"><span>Create new dinner</span></button>'
 

@@ -1,10 +1,13 @@
-var WelcomeController = function(view, model, app) {
+var DinnerPrintoutController = function(view, model, app) {
 
-    view.welcomeBtn.on('click', function () {
+  
+    view.returnFromPrint.on('click', function () {
     
         app.stateController(view,app.dishSearchView);
         app.stateController(view,app.sidebarView);
 
     });
+
   
+
 };

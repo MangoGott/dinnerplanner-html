@@ -5,7 +5,7 @@ var DinnerPrintoutView = function (container, model) {
 	var top = `
 	<h2 class="black"> My Dinner: ${model.getNumberOfGuests()} people </h2>
 
-	<button id="create" class="btn">
+	<button id="returnFromPrint" class="btn">
 	Go back and edit dinner
 	</button>
 	`
@@ -37,6 +37,16 @@ var DinnerPrintoutView = function (container, model) {
 		`);
 		
 	});
+
+
+	this.returnFromPrint = container.find("#returnFromPrint");
+
+	this.showView = function () {
+        container.show();
+    }
+    this.hideView = function () {
+        container.hide();
+    }	
 		
 }
  

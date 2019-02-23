@@ -72,10 +72,8 @@ p.ingList {
 	color: white;	
 }
 
-#backToSearch {
-	background-color: white;
-	color: black;
-}
+
+
 
 .info {
 	display: flex;
@@ -106,13 +104,9 @@ nav {
 }
 
 
-.sidebarView {
-	display: flex; 
-	flex-direction: column;
-	align-self: flex-start;
+.sidebarView {	
 	background-color:black;
 	margin: 20px;
-	
 
 }
 
@@ -130,32 +124,51 @@ nav {
 	flex-direction: column;	
 	background-color: black;
 	padding: 10px;
-	margin: 10px;
+	margin: 20px;
 
 }
 
 
 .dishItem > img{
-	width: 100px;
-	height: auto;
+	max-width: 190px;
+	min-width: 190px;
+	height: 230px;
 
+}
+
+.dishItem {
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	padding: 10px;
+	margin: 20px;
+	width: 200px;
+	background: #EE4035;
+	
+}
+
+#addMenu {
+	background: white;
+	color: black;
+}
+
+#removeMenu {
+	background: white;
+	color: black;
 }
 
 .search {
 	display: flex;
 	flex-flow: wrap;
 	margin: 10px;
-	padding: 10px;
 	background-color: white;
 	border: black;
-	justify-content: space-evenly;
-	height: 300px;
+	height: 400px;
+	overflow: scroll;
 }
 
 .ingredients {
-	display: flex;
 	background-color: #EE4035;
-	flex-direction: column;
 	padding: 2px;
 }
 
@@ -181,7 +194,7 @@ nav {
 }
 
 table {
- min-width: 300px;
+
 	
 }
 
@@ -191,7 +204,7 @@ table {
 
 .displayMenu {
 	display: flex;
-	justify-content: center
+	justify-content: center;
 	padding: 10px;
 	
 }
@@ -214,7 +227,6 @@ table {
 .dishItemView {
 	display: flex;
 	align-content: flex-start;
-	justify-content: space-evenly;
 }
 
 .overViewMitten {

@@ -3,7 +3,7 @@ var DinnerModel = function() {
  
 	
 	//Lab 3
-	let API_KEY="3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767";	
+	let API_KEY="3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767";	 //Flytta sen!
 	var dishID = 1;
 
 	//TODO Lab 1 implement the data structure that will hold number of guest
@@ -183,14 +183,15 @@ var DinnerModel = function() {
 	} 
 
 	this.getDish2 = function (id) {
-		return fetch('http://sunset.nada.kth.se:8080/iprog/group/70/recipes/'+Number(id)+'/information', {
+		return fetch('http://sunset.nada.kth.se:8080/iprog/group/70/recipes/' + id + '/information', {
 			headers: {
 				'X-Mashape-Key': API_KEY
 			}
 		}).then(response => response.json())
-			.then(data => data.results)
+			.then(data => data)
 	}
 
+	
 
 
 	// the dishes variable contains an array of all the 

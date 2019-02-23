@@ -31,10 +31,12 @@ var DishSearchView = function (container, model) {
 
 		container.append(searchBar);
 
-		container = container.find(".search"); //råkade flippa namnen, förvirrande. search/result
+		container1 = container1.find(".search"); //råkade flippa namnen, förvirrande. search/result
+		
+		//printList = model.getFullMenu(); //här får du det som ska printas ut
 
-		printList = model.getFullMenu(); //här får du det som ska printas ut
-/*
+
+		/*
 		printList.forEach( element => { 
 			new DishItemView($(container), model, element);
 		});
@@ -45,16 +47,15 @@ var DishSearchView = function (container, model) {
 	updates();
 
 	this.searchButton = results.find("#searchButton");
-	this.list = container.find(".search");
-
+	this.list = container1.find(".search");
+	this.window = container1;
 	//bara trycka på submit reloadar sidan; bara trycka enter, remove the form, we dont submit anything.  
 	
-	var loading = container.find(".loading");
-	
-
+	var loading = container1.find(".loading");
 
 	this.loadingShow = function () {
 		if (switchVar == 1){
+
 			loading.append(`<h2 class="black"> LOADING ;) </h2>`);
 			switchVar = 0;
 		}
@@ -71,12 +72,13 @@ var DishSearchView = function (container, model) {
 
 	}   
 
-//	model.addObserver(this.update);
+	//model.addObserver(this.update);
+
 	this.showView = function () {
-        container1.show();
+        container.show();
     }
     this.hideView = function () {
-        container1.hide();
+        container.hide();
     }	
 		
 }

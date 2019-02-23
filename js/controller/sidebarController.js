@@ -9,6 +9,12 @@
    });
 
    view.confirmBtn.on('click', function () {
+
+      app.stateController(view, app.dinnerOverView);
+      app.stateController(view, app.dinnerOverView);
+      app.stateController(app.dishSearchView, app.dinnerOverView);
+      app.stateController(app.dishDetailView, app.dinnerOverView);
+
    });
 
   };
