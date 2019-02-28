@@ -10,6 +10,7 @@ var DinnerModel = function() {
 	// and selected dishes for the dinner menu
 	var nrGuests = 2; 
 	var menu = [1,2,100,200]; //fyll på i app.js istället?
+	var menu2 = [];
 	
 	//Observer!
 	var observers=[];
@@ -191,7 +192,15 @@ var DinnerModel = function() {
 			.then(data => data)
 	}
 
-	
+	this.addToMenu2 = function(dish) {
+
+		menu2.push(dish);
+
+	}
+
+	this.getFullMenu2 = function() {
+		return menu2; 
+	}
 
 
 	// the dishes variable contains an array of all the 

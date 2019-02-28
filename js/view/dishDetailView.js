@@ -1,35 +1,58 @@
 var DishDetailView = function (container, model) {
 
 
+	var updateDiv = '<div class="update"> </div>'
+	container.append(updateDiv);
+	updateDiv = container.find(".update");
 
-		//knapparna funkar inte längre, och går inte att hämta Dishes med model.getDish(). !!!
-		
 	var updates = function () {
 
-		container.empty();
-
-		//vad händer när det inte finns internet. du är offline, något gick fel osv. 
 		
-
-		console.log(model.getID());
-
+		updateDiv.empty();
 		this.id = model.getID();
 	
 		model.getDish2(this.id).then(x => {	
+		
+		updateDiv.empty();
+
+		const dishName = x.name;
+		const dishImg = x.image;
+		const dishDes = x.description;
+
 		console.log(x);	
-		container.append('<h2>' + x.title + '</h2>');
-		//container.append('<img src="https://spoonacular.com/recipeImages/' + x.image +'"' + '/>');
-		container.append('<img src="' + x.image + '"' + '/>');
-		container.append('<p>' + x.instructions + '</p>');
+		updateDiv.append('<h2>' + x.title + '</h2>');
+		//updateDiv .append('<img src="https://spoonacular.com/recipeImages/' + x.image +'"' + '/>');
+		updateDiv.append('<img src="' + x.image + '"' + '/>');
+		updateDiv.append('<p>' + x.instructions + '</p>');
+
+
+		updateDiv.append('<div class="ingredients col-auto"> </div>')
+		var ingredientsContainer = updateDiv.find('.ingredients');
+		var guests = model.getNumberOfGuests();	
+		ingredientsContainer.append('<table class="bord"></table>');
+		ingredientsContainer.empty();
+		ingredientsContainer.append("<h2>Ingredients for " + guests + " people</h2>");
 
 		x.extendedIngredients.forEach(element => {
 			console.log(element.originalString);
-			
+
+				var x = `
+							
+							<tr>
+								<td> <p>${element.amount * guests + " " + element.measures.metric.unitShort}  </p> </td>
+								<td> <p class="ingList">    ${element.name}  </p> </td> 
+								<td> <p>    ${1 * guests} SEK  </p> </td>
+							</tr>
+				`;
+
+				ingredientsContainer.append(x);
 		});		
 
+		
+		
 	});
 		
-			
+		/*	
 
 		var dish = model.getDish(1);
 
@@ -61,23 +84,7 @@ var DishDetailView = function (container, model) {
 		infoDiv.append(`<button id="addMenu" class="btn">Add to menu</button>`);
 		infoDiv.append(`<button id="removeMenu" class="btn">Remove from menu</button>`);
 
-		var guests = model.getNumberOfGuests();
-		//Töm allt först, speciellt om du använder append
-		//container.empty();
-	
-		
-
-
-				//lägg till infoDiv och lägg info i den
-		//var dishInfo = container.find('.dishDetailView'); 
-		
-
-		//infoDiv.empty();
-
-	
-
-		//lopa och lägg in table rows eller vadfan det heter. 
-		
+		var guests = model.getNumberOfGuests();	
 
 		ingredientsContainer.empty();
 		
@@ -99,20 +106,32 @@ var DishDetailView = function (container, model) {
 				
 		});		
 
+		*/
+		
+
 		
 
 	}
 
+	var infoDiv = '<div class="info"></div>';
+	container.append(infoDiv);
+	infoDiv = container.find('.info');
+	infoDiv.append(`<button id="addMenu" class="btn">Add to menu</button>`);
+	infoDiv.append(`<button id="removeMenu" class="btn">Remove from menu</button>`);
+	infoDiv.append('<button id="backToSearch" class="btn">Back to search</button>');
+		
 
 	this.backBtn = container.find("#backToSearch");
 	this.addBtn = container.find("#addMenu");
 	this.removeBtn = container.find("#removeMenu");
 
 	
+	
 
 	this.update = function (model, changeDetails) {
 		
 		updates();
+		
 		
 	  }   
 	  

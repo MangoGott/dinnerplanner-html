@@ -12,10 +12,18 @@ var DishSearchView = function (container, model) {
 		<input type="text" id="searchTerm" value="">
 		
 		<select class="form-control" id="type">
-			<option>Main Course</option>
-			<option>Side Dish</option>
-			<option>Dessert</option>
-			<option>Appetizer</option>
+		<option value="all">All</option>
+		<option value="side dish">Side dish</option>
+		<option value="main course">Main course</option>
+		<option value="dessert">Dessert</option>
+		<option value="appetizer">Appetizer</option>
+		<option value="salad">Salad</option>
+		<option value="bread">Bread</option>
+		<option value="breakfast">Breakfast</option>
+		<option value="soup">Soup</option>
+		<option value="beverage">Beverage</option>
+		<option value="sauce">Sauce</option>
+		<option value="drink">Drink</option>
 		</select>
 		
 		<input id="searchButton" class="btn" type="submit" value="Search">
