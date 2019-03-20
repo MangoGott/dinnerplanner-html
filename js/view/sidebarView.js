@@ -58,7 +58,7 @@ var SidebarView = function (container, model) {
             x = `	
                       <tr>
                         <td> <p>${model.getDish(element).name}</p> </td>
-                        <td> <p>${model.getTotalDishPrice(element)} SEK  </p> </td>
+                        <td> <p>${element.pricePerServing * model.getNumberOfGuests()} SEK  </p> </td>
                       </tr>
                 `;
                 table.append(x);
@@ -71,7 +71,41 @@ var SidebarView = function (container, model) {
            
           };
 
- updates();
+var updates2 = function () {
+              
+  newContainer.find("#numberGuestsCounter").empty().append(`People: ${model.getNumberOfGuests()}`);
+        
+                 
+  table = newContainer.find('.sidebarTable');
+                  
+  table.empty();
+  var menu = model.getFullMenu2();
+
+                  guests = model.getNumberOfGuests();
+        
+                  var x = ``;
+        
+                  menu.forEach(element => {
+        
+                    x = `	
+                              <tr>
+                                <td> <p>${element.title}</p> </td>
+                                <td> <p> ${element.pricePerServing * guests} SEK </p> </td>
+                              </tr>
+                        `;
+                        table.append(x);
+                  });
+        
+                  table.append(`
+                            <td class="last"> <p>Total cost </p> </td>
+                            <td class="last"> <p> ${model.getTotalMenuPrice()} SEK </p></td>       
+                            `);
+                   
+                  };
+        
+
+
+ updates2();
 
  this.confirmBtn = newContainer.find("#create");
  this.plusButton = newContainer.find("#plusGuest");
@@ -79,7 +113,7 @@ var SidebarView = function (container, model) {
  
  
   this.update = function (model, changeDetails) {
-    updates();
+    updates2();
   }   
   
   model.addObserver(this.update);

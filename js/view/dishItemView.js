@@ -29,7 +29,12 @@ var DishItemView = function (view, container, dish, model, app) {
 	container.append(dishDiv);
 
 	dishDiv = container.find(".dishItem").last();
-	dishDiv.append('<img src="https://spoonacular.com/recipeImages/' + dish.image +'"' + '/>');
+	if (dish.image.includes('https')) {
+        dishDiv.append('<img src="' + dish.image + '"' + '/>')
+    }
+    else {
+        dishDiv.append('<img src="https://spoonacular.com/recipeImages/' + dish.image + '"' + '/>');
+    }
     dishDiv.append('<a class="dishName">' + dish.title + '</a>');
 	
 	//dishDiv.append('<p class="itemPrice">' + model.getTotalDishPrice(dish.id) + ' SEK</p>');

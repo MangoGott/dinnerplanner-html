@@ -75,8 +75,11 @@ var DishSearchView = function (container, model) {
 	}
 
 	this.update = function (model, changeDetails) {
-		updates();	
-		this.printList = printList;
+		
+			updates();	
+			this.printList = printList;
+
+		
 
 	}   
 

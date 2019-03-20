@@ -4,37 +4,63 @@ var DishDetailView = function (container, model) {
 	var updateDiv = '<div class="update"> </div>'
 	container.append(updateDiv);
 	updateDiv = container.find(".update");
+	this.thisDish = model.getID();
+	var currentID = 0;
+	this.currentObject = null; 
+
 
 	var updates = function () {
 
-		
+		currentID = model.getID();
 		updateDiv.empty();
-		this.id = model.getID();
+		//this.id = model.getID();
 	
-		model.getDish2(this.id).then(x => {	
+		model.getDish2(model.getID()).then(x => {	
+
+		this.currentObject = x; 
+		console.log(this.currentObject);
 		
 		updateDiv.empty();
 
+		this.theDish = x;
 		const dishName = x.name;
 		const dishImg = x.image;
 		const dishDes = x.description;
 
-		console.log(x);	
 		updateDiv.append('<h2>' + x.title + '</h2>');
 		//updateDiv .append('<img src="https://spoonacular.com/recipeImages/' + x.image +'"' + '/>');
 		updateDiv.append('<img src="' + x.image + '"' + '/>');
 		updateDiv.append('<p>' + x.instructions + '</p>');
-
-
 		updateDiv.append('<div class="ingredients col-auto"> </div>')
+
+		updateIng();
+
+		
+	}).catch(error => {
+            
+            console.log(error);
+            
+        });
+
+	}
+
+	var updateIng = function () {
+
+
 		var ingredientsContainer = updateDiv.find('.ingredients');
 		var guests = model.getNumberOfGuests();	
-		ingredientsContainer.append('<table class="bord"></table>');
+		
+		
+		
 		ingredientsContainer.empty();
 		ingredientsContainer.append("<h2>Ingredients for " + guests + " people</h2>");
+	
+		ingredientsContainer.append('<table class="bord"></table>');
+		ingredientsContainer = updateDiv.find('.bord');
 
-		x.extendedIngredients.forEach(element => {
-			console.log(element.originalString);
+		if(this.currentObject != null){
+
+			this.currentObject.extendedIngredients.forEach(element => {
 
 				var x = `
 							
@@ -46,70 +72,9 @@ var DishDetailView = function (container, model) {
 				`;
 
 				ingredientsContainer.append(x);
-		});		
+		});	
+		}
 
-		
-		
-	});
-		
-		/*	
-
-		var dish = model.getDish(1);
-
-		const dishName = dish.name;
-		const dishImg = dish.image;
-		const dishDes = dish.description;
-		var IngDiv = '<div class="ingredients"></div>'
-		container.append(IngDiv);
-		var totalPrice = 0; 
-		var ingredients = model.getDish(1).ingredients;
-
-		var returnButton = '<button id="backToSearch" class="btn">Back to search</button>';
-
-		var infoDiv = '<div class="info"></div>'
-		container.append(infoDiv);
-		infoDiv = container.find('.info');
-		infoDiv.append('<h2>' + dishName + '</h2>');
-		infoDiv.append('<img src="images/' + dishImg+ '">');
-		
-		infoDiv.append(`<p>${dishDes}</p>`);
-		infoDiv.append(returnButton);
-
-	
-
-
-		var ingredientsContainer = container.find('.ingredients');
-
-		ingredientsContainer.append('<table class="bord"></table>');
-		infoDiv.append(`<button id="addMenu" class="btn">Add to menu</button>`);
-		infoDiv.append(`<button id="removeMenu" class="btn">Remove from menu</button>`);
-
-		var guests = model.getNumberOfGuests();	
-
-		ingredientsContainer.empty();
-		
-		ingredientsContainer.append("<h2>Ingredients for " + guests + " people</h2>");
-	
-			ingredients.forEach(element => {
-
-				var x = `
-							
-							<tr>
-								<td> <p>${element.quantity * guests + " " + element.unit}  </p> </td>
-								<td> <p class="ingList">    ${element.name}  </p> </td> 
-								<td> <p>    ${element.price * guests} SEK  </p> </td>
-							</tr>
-				`;
-
-				ingredientsContainer.append(x);
-				
-				
-		});		
-
-		*/
-		
-
-		
 
 	}
 
@@ -124,14 +89,21 @@ var DishDetailView = function (container, model) {
 	this.backBtn = container.find("#backToSearch");
 	this.addBtn = container.find("#addMenu");
 	this.removeBtn = container.find("#removeMenu");
-
 	
-	
+	//flytta över allt som påverkas av sidebaren,dvs ingrediensrutan till en annan update ruta. 
+	//Du ska inte behöva fetcha igen, utan spara ner det eller nått. 
 
 	this.update = function (model, changeDetails) {
+
 		
-		updates();
-		
+		if(model.getID() !== currentID){
+			updates();
+		}
+		if(changeDetails == 'nrGuest'){
+				updateIng();
+			
+		}
+			
 		
 	  }   
 	  

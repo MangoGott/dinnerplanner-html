@@ -40,7 +40,8 @@ var DinnerModel = function() {
 		
 		if(num>=0){
 			nrGuests = num; 
-			this.notifyObservers(nrGuests);
+			this.notifyObservers('nrGuest');
+			
 		}		
 
 	}
@@ -84,19 +85,15 @@ var DinnerModel = function() {
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function(){
 		
-		var guests = this.getNumberOfGuests();
-		
-		var menuIngredients = this.getAllIngredients();
-		
-		var totalPrice = 0; 
-		
-		menuIngredients.forEach(element => {
-			element.forEach( element2 => {
-				var price = element2.price;
-				totalPrice = totalPrice + price*guests;
-			});	
-		});	
-		return totalPrice;
+		var sum = 0;
+
+		menu2.forEach( element => {
+
+			sum += element.pricePerServing;
+
+		});
+
+		return sum * nrGuests;
 
 	}
 
@@ -116,8 +113,6 @@ var DinnerModel = function() {
 		return totalDishPrice;
 
 	}
-
-
 
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
@@ -193,14 +188,42 @@ var DinnerModel = function() {
 	}
 
 	this.addToMenu2 = function(dish) {
-
+		this.removeDish2(dish.id);
 		menu2.push(dish);
-
+		this.notifyObservers(nrGuests);
 	}
 
 	this.getFullMenu2 = function() {
 		return menu2; 
 	}
+
+	this.removeDish2 = function (id) {
+
+		
+		console.log(id);
+
+		menu2.forEach( element => { 
+
+			console.log(element.id);
+
+			if(element.id === id){
+				
+				index = menu2.indexOf(element);
+				menu2.splice(index,1);
+				this.notifyObservers(nrGuests);
+				console.log("hittad");		
+
+			}
+
+
+		})
+
+	}
+		
+
+	
+
+
 
 
 	// the dishes variable contains an array of all the 

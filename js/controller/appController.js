@@ -6,7 +6,7 @@ var AppController = function (model) {
     this.dishSearchView = new DishSearchView($(".dishSearchView"), model,);
 	//this.dishItemView = new DishItemView($(".dishItemView"), model, 2); ska inte kallas på
 	this.dishDetailView = new DishDetailView($(".dishDetailView"), model);
-	this.dinnerOverView = new DinnerOverView($(".dinnerOverView"), model);
+	this.dinnerOverView = new DinnerOverView($(".dinnerOverView"), model, this);
     this.dinnerPrintoutView = new DinnerPrintoutView($(".dinnerPrintoutView"), model);
     
 

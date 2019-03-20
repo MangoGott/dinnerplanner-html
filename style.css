@@ -87,12 +87,22 @@ img {
 	height: auto;
 }
 .dishDetailView {
-	display: flex;
-	flex-flow: wrap row;
+
 	background-color:black;
-	margin: 20px;
-	align-content: space-between;
-	align-content: center;
+	margin: 20px;	
+	
+}
+
+.update {
+	display: flex;
+	align-items: center;
+	flex-flow: column;
+	padding: 10px;
+}
+
+.update > img {
+	width: 230px;
+	height: auto;
 }
 
 .info > img {
@@ -131,8 +141,7 @@ nav {
 
 .dishItem > img{
 	max-width: 190px;
-	min-width: 190px;
-	height: 230px;
+	height: 190px;
 
 }
 

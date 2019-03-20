@@ -2,13 +2,21 @@ var DishDetailController = function(view, model, app){
 
 
     view.addBtn.on('click', function (){
-        console.log("ADD DISH");
 
+        model.getDish2(model.getID()).then(x =>{
+
+            model.addToMenu2(x);
+
+        });
 
     });
 
     view.removeBtn.on('click', function (){
-        console.log("REMOVE DISH");
+
+       // var dishID = view.thisDish;
+
+        model.removeDish2(model.getID());
+
     });
 
     view.backBtn.on('click', function () {
